@@ -21,7 +21,7 @@ bot.onText(/^\/addcommand (.+)/, (msg, match) => {
 
   commands[cmd] = {
     image,
-    caption: caption.replace(/\n/g, '\n'),
+    caption: caption.replace(/\\n/g, '\n'),
     ...(buttonText && buttonUrl ? { buttonText, buttonUrl } : {})
   };
 
@@ -40,7 +40,7 @@ bot.onText(/^\/editcommand (.+)/, (msg, match) => {
 
   commands[cmd] = {
     image,
-    caption: caption.replace(/\n/g, '\n'),
+    caption: caption.replace(/\\n/g, '\n'),
     ...(buttonText && buttonUrl ? { buttonText, buttonUrl } : {})
   };
 
@@ -67,7 +67,7 @@ bot.onText(/^\/editcaption (.+)/, (msg, match) => {
     if (!commands[cmd]) return bot.sendMessage(msg.chat.id, '⚠️ Команда не найдена.');
     if (!newCaption) return bot.sendMessage(msg.chat.id, '❗ Укажите описание.');
   
-    commands[cmd].caption = newCaption.replace(/\n/g, '\n');
+    commands[cmd].caption = newCaption.replace(/\\n/g, '\n');
     fs.writeFileSync('./commands.json', JSON.stringify(commands, null, 2));
     bot.sendMessage(msg.chat.id, `✏️ Описание команды ${cmd} обновлено.`);
   });
@@ -155,7 +155,7 @@ bot.on('message', (msg) => {
     }
 
     const options = {
-      caption: caption.replace(/\n/g, '\n'),
+      caption: caption.replace(/\\n/g, '\n'),
       parse_mode: 'HTML'
     };
 
