@@ -155,7 +155,7 @@ bot.on('message', (msg) => {
     }
 
     const options = {
-      caption: caption,
+      caption: caption.replace(/\n/g, '<br>'),
       parse_mode: 'HTML'
     };
 
