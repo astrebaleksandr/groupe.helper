@@ -3,7 +3,7 @@ const fs = require('fs');
 const path = require('path');
 
 // 🔑 Токен бота
-const token = '7693447121:AAGX9pOW2POZ-iTxd45w9BULBkIxJpXMwsQ';
+const token = '7086480350:AAGItTIN850dG5WysuUntAQwrqTwoCC41dI';
 const bot = new TelegramBot(token, { polling: true });
 
 // 📥 Загружаем команды
